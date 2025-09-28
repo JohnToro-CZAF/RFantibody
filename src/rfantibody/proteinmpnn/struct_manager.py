@@ -91,6 +91,7 @@ class StructManager():
                 os.makedirs(self.outpdbdir)
 
             pdbfile = os.path.join(self.outpdbdir, tag + '.pdb')
+            print(f'Dumping pose to {pdbfile}')
             pose.dump_pdb(pdbfile)
         
         if self.quiver:

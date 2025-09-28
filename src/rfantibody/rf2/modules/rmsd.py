@@ -10,7 +10,7 @@ from rfantibody.rf2.modules import pose_util as pu
 from rfantibody.rf2.modules import parsers
 
 script_dir=os.path.dirname(os.path.abspath(__file__))
-usalign = f'{script_dir}/../../../../include/USalign/USalign'
+usalign = f'{script_dir}/../../include/USalign/USalign'
 
 def tmalign_to_subset(pose1: "Pose", pose2: "Pose", subset: str) -> None:
     """

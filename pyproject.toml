@@ -8,9 +8,14 @@ authors = [
 ]
 readme = "README.md"
 packages = [
-{include = "rfantibody", from = "src"},
-{include = "include"},
-{include = "se3_transformer", from = "include/SE3Transformer"}
+  { include = "rfantibody", from = "src" },
+  { include = "se3_transformer", from = "include/SE3Transformer" }  # keep only if it's a real Python package
+]
+
+# ship non-Python assets (sdist+wheel)
+include = [
+  { path = "src/rfantibody/include/USalign/**", format = "sdist" },
+  { path = "src/rfantibody/include/USalign/**", format = "wheel" }
 ]
 
 [[tool.poetry.source]]
@@ -24,7 +29,7 @@ priority = "explicit"
 
 [tool.poetry.dependencies]
 python = "3.10.*"
-torch = { version="2.3.*", source="pytorch" }
+torch = { version = "2.3.*", source = "pytorch" }
 torchaudio = "*"
 torchvision = "*"
 torch-utils = "*"
@@ -45,3 +50,6 @@ optional = true
 pytest = "^8.0.0"
 pandas = "*"
 
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
